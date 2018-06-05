@@ -46,7 +46,7 @@ def make_gamma():
 
 gamma = make_gamma()
 
-
+#main, ejecuta el lazo principal
 if __name__ == "__main__":
     fpsClock = pygame.time.Clock()
     FPS = 30 # FPS
@@ -62,8 +62,8 @@ if __name__ == "__main__":
                 sys.exit()
         fps_text = "FPS: {0:.2f}".format(fpsClock.get_fps())
 
-
-        depth = np.rot90(get_depth()[0]) # lectura de profundidad
+        # lectura de profundidad
+        depth = np.rot90(get_depth()[0]) 
         pixels = gamma[depth] # color dado por gamma
         temp_surface = pygame.Surface(resolucion)
         pygame.surfarray.blit_array(temp_surface, pixels)
