@@ -100,6 +100,7 @@ class capture():
       self.process()
       return
     #pre-process image
+    
     def process(self):
         if self.ap_mask:
           self.img_g = self.mask - self.img_g
@@ -109,7 +110,7 @@ class capture():
         if self.filter:
           self.img_g = cv2.blur(self.img_g,(self.filterSize,self.filterSize))                
         return
-        
+
     def run(self):
       #read from camera
       #while True:
@@ -135,6 +136,11 @@ class capture():
        return
 ##########################################################
 ##########################################################    
+'''
+Codigo generador de la ventana animada
+
+'''
+
 class secWindow(QMainWindow):
     def __init__(self, parent=None):
         QMainWindow.__init__(self, parent)
@@ -179,7 +185,7 @@ class secWindow(QMainWindow):
         self.axes.clear()
         if self.contour:
           self.axes.contour(self.X, self.Y,img_g, self.levels, colors='black')            
-        self.axes.imshow(img_g,cmap = 'terrain', extent=[255,0,0, 255])            
+        self.axes.imshow(img_g,cmap = 'plasma', extent=[255,0,0, 255])            
         self.canvas.draw()
       return
     #function do not destroy window, just hide it, and do not waste time ploting  
